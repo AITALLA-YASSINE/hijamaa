@@ -346,14 +346,29 @@ const BookingSection = () => {
   const services = ["Hijama sèche", "Hijama humide", "Hijama sportive", "Hijama bien-être", "Hijama visage", "Hijama corps entier"];
   const servicePrices = { "Hijama sèche": "45€", "Hijama humide": "45€", "Hijama sportive": "45€", "Hijama bien-être": "45€", "Hijama visage": "35€", "Hijama corps entier": "70€" };
 
-  const fetchSlots = async (date) => {
+ const fetchSlots = async (date) => {
     try {
-      const res = await axios.get(`${API}/appointments/slots/${format(date, "yyyy-MM-dd")}`);
-      setAvailableSlots(res.data.slots);
-    } catch { setAvailableSlots([]); }
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const dateStr = `${year}-${month}-${day}`;
+      console.log("Fetching slots for:", dateStr);
+      const res = await axios.get(`${API}/appointments/slots/${dateStr}`);
+      console.log("Slots received:", res.data.slots?.length);
+      setAvailableSlots(res.data.slots || []);
+    } catch (err) {
+      console.error("Error fetching slots:", err);
+      setAvailableSlots([]);
+    }
   };
 
-  useEffect(() => { if (selectedDate) { fetchSlots(selectedDate); setSelectedTime(null); } }, [selectedDate]);
+  useEffect(() => {
+    if (selectedDate) {
+      setAvailableSlots([]);
+      setSelectedTime(null);
+      fetchSlots(selectedDate);
+    }
+  }, [selectedDate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
