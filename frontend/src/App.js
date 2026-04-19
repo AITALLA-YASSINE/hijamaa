@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Toaster, toast } from "sonner";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+
+const API = "/api";
 import {
   MessageCircle, X, Send, Phone, Clock, Heart, Sparkles, Leaf,
   Activity, ChevronDown, Check, Droplets, Zap, Shield, Award,
@@ -29,7 +31,7 @@ const isDateDisabled = (date) => {
   return d < today;
 };
 
-const API = "/api";
+
 const WHATSAPP_NUMBER = "33743565189";
 const WHATSAPP_DISPLAY = "07 43 56 51 89";
 
