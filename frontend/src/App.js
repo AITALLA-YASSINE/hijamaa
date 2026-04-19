@@ -114,6 +114,7 @@ const Navigation = () => {
     </nav>
   );
 };
+console.log("API URL:", API);
 
 // Hero
 const HeroSection = () => (
