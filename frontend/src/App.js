@@ -29,8 +29,7 @@ const isDateDisabled = (date) => {
   return d < today;
 };
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API = "/api";
 const WHATSAPP_NUMBER = "33743565189";
 const WHATSAPP_DISPLAY = "07 43 56 51 89";
 
