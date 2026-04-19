@@ -95,7 +95,7 @@ const Navigation = () => {
         </a>
         <div className="hidden md:flex items-center gap-6">
           {links.map(l => <a key={l.href} href={l.href} className="nav-link text-sm">{l.label}</a>)}
-          <a href="#reservation"><Button className="bg-[#A8B5A2] hover:bg-[#8FA389] text-white rounded-full px-5 text-sm" data-testid="nav-book-btn">Réserver</Button></a>
+          <a href="#reservation"><Button className="bg-[#A8B5A2] hover:bg-[#8FA389] text-white rounded-full px-5 text-sm" data-testid="nav-book-btn">Réserverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</Button></a>
         </div>
         <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} data-testid="mobile-menu-btn">
           <Menu className="w-6 h-6 text-[#2D312E]" />
